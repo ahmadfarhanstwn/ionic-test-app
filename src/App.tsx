@@ -32,6 +32,7 @@ import './theme/variables.css';
 import Home from './pages/Home';
 import RouteWrapper from './RouteWrapper';
 import Layout from './components/Layout';
+import Cashier from './pages/Cashier/Cashier';
 
 setupIonicReact();
 
@@ -39,8 +40,8 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <RouteWrapper path="/home" component={Home} layout={Layout} />
-        <Route exact path="/" render={() => <Redirect to="/home" />} />
+        <RouteWrapper exact path="/" component={Home} layout={Layout} />
+        <RouteWrapper path="/cashier" component={Cashier} layout={Layout} />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>

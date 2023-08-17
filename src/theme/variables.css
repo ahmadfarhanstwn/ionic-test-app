@@ -234,3 +234,30 @@ http://ionicframework.com/docs/theming/ */
     --ion-card-background: #1e1e1e;
   }
 }
+
+/* Default styles for desktop */
+@media (min-width: 768px) {
+  ion-menu {
+    --ion-menu-width: 250px; /* Set the desired width for the menu */
+  }
+
+  ion-router-outlet {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    transition: margin-left 0.3s ease-out; /* Add a smooth transition effect */
+  }
+
+  ion-menu[side="start"].menu-open {
+    #main-content {
+      margin-left: 250px; /* Shift the main content to the right when the menu is open */
+    }
+  }
+
+  /* .ion-page {
+    margin-left: 250px;
+  } */
+}

@@ -1,5 +1,6 @@
-import React from 'react'
-import { IonButtons, IonContent, IonHeader, IonMenu, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react'
+import React, { useState } from 'react'
+import { IonButtons, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenu, IonMenuButton, IonMenuToggle, IonPage, IonSplitPane, IonTitle, IonToolbar } from '@ionic/react'
+import { home, storefront } from 'ionicons/icons'
 
 interface ILayoutProps {
     children: React.ReactNode
@@ -11,10 +12,21 @@ const Layout: React.FC<ILayoutProps> = ({children}) => {
       <IonMenu contentId="main-content">
         <IonHeader>
           <IonToolbar>
-            <IonTitle>Menu Content</IonTitle>
+            <IonTitle>OpenPOS</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonContent className="ion-padding">This is the menu content.</IonContent>
+        <IonContent className="ion-padding">
+          <IonList id='inbox-list'>
+            <IonItem routerDirection='none' routerLink='/' lines='none'>
+              <IonIcon icon={home} slot='start' color='dark'></IonIcon>
+              <IonLabel>Dashboard</IonLabel>
+            </IonItem>
+            <IonItem routerDirection='none' routerLink='/cashier' lines='none'>
+              <IonIcon icon={storefront} slot='start' color='dark'></IonIcon>
+              <IonLabel>Cashier</IonLabel>
+            </IonItem>
+          </IonList>
+        </IonContent>
       </IonMenu>
       <IonPage id="main-content">
         <IonHeader>
@@ -26,7 +38,7 @@ const Layout: React.FC<ILayoutProps> = ({children}) => {
           </IonToolbar>
         </IonHeader>
         <IonContent className="ion-padding">
-            {children}
+          {children}
         </IonContent>
       </IonPage>
     </>
